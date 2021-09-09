@@ -107,3 +107,77 @@ body {
 	transform: translateY(2px);
 	transition: 0.15s;
 }
+
+/* TaskEditPopup */
+
+.popup-content {
+	background: #FFFFFF;
+	width: 550px;
+	height: 200px;
+	border-radius: 20px;
+	padding: 15px;
+}
+
+.popup-overlay {
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content-container {
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+.edit-input {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	font-weight: 300;
+	margin-right: 20px;
+	outline: none;
+}
+
+.edit-input:focus {
+	outline: 3px double rgba(29, 209, 244, 1);
+}
+
+.edit-input--error {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	font-weight: 300;
+	margin-right: 20px;
+	
+	border-color: #ff4040;
+	border-style: solid;
+	transition: 0.5s;
+}
+
+.edit-input--error:focus {
+	outline: none;
+}
+
+.done-btn {
+	width: 65px;
+
+	font-size: 14px;
+	font-weight: 600;
+	color: #FFFFFF;
+
+	padding: 5px;
+	border: none;
+	border-radius: 7px;
+	background-color: #9B30FF;
+
+	transition: 0.15s ease-in;
+}
+
+.done-btn:hover {
+	cursor:pointer;
+	transform: scale(1.1);
+	transition: 0.15s ease-in;
+}
+
+.done-btn:active {
+	transform: translateY(2px);
+	transition: 0.15s;
+}
