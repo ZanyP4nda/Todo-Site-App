@@ -1,28 +1,27 @@
 import React from 'react';
+import axios from 'axios';
 import Task from 'src/components/Task.js';
 
-const tasks = [
-	{
-		task: "Take over the world",
-		is_completed: false
-	},
-	{
-		task: "Become batman",
-		is_completed: false
-	},
-	{
-		task: "Task name",
-		is_completed: false
-	},
-]
-
 class TaskSpace extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			tasks: []
+		}
+	}
 	componentDidMount() {
-		console.log(tasks[1].task);
+		this.getTasks();
+	}
+
+	// GET tasks from REST api
+	getTasks = () => {
+		axios.get('http://127.0.0.1:8000/api/tasks').then((response) => {
+			this.setState({tasks: response.data});
+		});
 	}
 
 	renderTasks = () => {
-		return tasks.map((task) => {
+		return this.state.tasks.map((task) => {
 			return(
 			<div>
 				<Task key={task.task} task={task.task} />
@@ -34,7 +33,7 @@ class TaskSpace extends React.Component {
 
 	render() {
 		return(
-			<div class="taskspace">
+			<div className="taskspace">
 				<div>
 					{this.renderTasks()}
 				</div>
