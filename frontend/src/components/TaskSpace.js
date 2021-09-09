@@ -106,7 +106,7 @@ class TaskSpace extends React.Component {
 					</div>
 				</div>
 			<TaskPopup 
-			isOpen={this.state.isPopupOpen} updateTask={this.newTask} onClose={this.onPopupClose.bind(this)} closeOnDocumentClick
+			isOpen={this.state.isPopupOpen} updateTask={this.newTask} onClose={this.onPopupClose.bind(this)} closeOnDocumentClick title="NEW TASK"
 			className="popup" />
 			</div>
 		);

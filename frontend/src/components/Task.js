@@ -68,7 +68,7 @@ class Task extends React.Component {
 				</div>
 
 				<TaskPopup 
-				isOpen={this.state.isPopupOpen} onClose={this.handlePopupClose.bind(this)} closeOnDocumentClick task={this.state.task.task} updateTask={this.updateTask.bind(this)}
+				isOpen={this.state.isPopupOpen} onClose={this.handlePopupClose.bind(this)} closeOnDocumentClick task={this.state.task.task} updateTask={this.updateTask.bind(this)} title="EDIT TASK"
 				className="popup" />
 			</div>
 		);

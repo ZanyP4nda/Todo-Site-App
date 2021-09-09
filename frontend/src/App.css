@@ -276,6 +276,15 @@ body {
 	background: rgba(0, 0, 0, 0.5);
 }
 
+.popup-title {
+	display: inline-block;
+	position: absolute;
+	margin-top: 5px;
+	margin-left: 10px;
+	
+	font-size: 22px;
+}
+
 .popup-content-container {
 	display: flex;
 	height: 100%;
