@@ -57,17 +57,22 @@ class TaskSpace extends React.Component {
 	render() {
 		return(
 			<div>
-				<span className="view-container">
-					<fieldset className="switch">
-						<label id="0" className={this.state.view == 0 ? "checked-label" : "unchecked-label"} onClick={this.handleViewChange}>
-							UNCOMPLETED
-						</label>
-						<label id="1" className={this.state.view == 1 ? "checked-label" : "unchecked-label"} onClick={this.handleViewChange}>
-							COMPLETED
-						</label>
-					</fieldset>
-					<div className="toggle-container">
-						<span className={this.state.view == 0 ? "toggle-uncompleted" : "toggle-completed"} />
+				<span className="top-container">
+					<span className="view-container">
+						<fieldset className="switch">
+							<label id="0" className={this.state.view == 0 ? "checked-label" : "unchecked-label"} onClick={this.handleViewChange}>
+								UNCOMPLETED
+							</label>
+							<label id="1" className={this.state.view == 1 ? "checked-label" : "unchecked-label"} onClick={this.handleViewChange}>
+								COMPLETED
+							</label>
+						</fieldset>
+						<div className="toggle-container">
+							<span className={this.state.view == 0 ? "toggle-uncompleted" : "toggle-completed"} />
+						</div>
+					</span>
+					<div className="create-btn-container">
+						<button className="create-btn">+</button>
 					</div>
 				</span>
 				<div className="taskspace">
