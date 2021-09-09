@@ -9,9 +9,6 @@ class TaskSpace extends React.Component {
 			tasks: []
 		}
 	}
-	componentDidMount() {
-		this.getTasks();
-	}
 
 	// GET tasks from REST api
 	getTasks = () => {
@@ -34,6 +31,7 @@ class TaskSpace extends React.Component {
 	}
 
 	render() {
+		this.getTasks();
 		return(
 			<div className="taskspace">
 				<div>
