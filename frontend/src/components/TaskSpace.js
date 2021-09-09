@@ -22,12 +22,14 @@ class TaskSpace extends React.Component {
 
 	renderTasks = () => {
 		return this.state.tasks.map((task) => {
-			return(
-			<div>
-				<Task key={task.task} task={task.task} />
-				<br />
-			</div>
-			);
+			if(task.is_completed == false) {
+				return(
+				<div key={task.pk}>
+					<Task task={task} />
+					<br />
+				</div>
+				);
+			}
 		});
 	}
 
