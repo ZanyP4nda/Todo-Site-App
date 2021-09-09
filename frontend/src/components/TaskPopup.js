@@ -22,8 +22,8 @@ class TaskPopup extends React.Component {
 		this.props.onClose();
 	}
 
-	// Called when done button is clicked
-	handleDoneBtnClick = (e) => {
+	// Called when form is submitted
+	handleSubmit = (e) => {
 		e.preventDefault();
 		if(this.checkInput(this.state.task)) {
 			this.props.updateTask(this.state.task);
@@ -56,8 +56,10 @@ class TaskPopup extends React.Component {
 				</div>
 				<div className="task-popup-content-container">
 					<span>
-						<input type="text" className={this.state.inputCSSClass} placeholder="Enter your task" value={this.state.task} onChange={this.handleInputChange} />
-						<button className="done-btn" onClick={this.handleDoneBtnClick}>DONE</button>
+						<form onSubmit={this.handleSubmit}>
+							<input type="text" className={this.state.inputCSSClass} placeholder="Enter your task" value={this.state.task} onChange={this.handleInputChange} />
+							<button className="done-btn" type="submit">DONE</button>
+						</form>
 					</span>
 				</div>
 			</Popup>
