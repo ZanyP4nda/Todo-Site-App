@@ -9,6 +9,9 @@ class Task extends React.Component {
 			isPopupOpen: false
 		}
 	}
+	componentDidMount() {
+		this.setState({task: this.props.task});
+	}
 
 	// Called when task is clicked
 	handleTaskClick = (e) => {

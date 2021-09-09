@@ -6,7 +6,9 @@ import TaskSpace from 'src/components/TaskSpace.js';
 class App extends React.Component {
 	render() { 
 		return(
-			<TaskSpace />
+			<div>
+				<TaskSpace />
+			</div>
 		);
 	}
 }
