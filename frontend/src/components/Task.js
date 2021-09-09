@@ -16,11 +16,11 @@ class Task extends React.Component {
 
 	// Called when task is clicked
 	handleTaskClick = (e) => {
-		// PUT is_completed = true to API
 		let tempTask = this.state.task;
-		tempTask.is_completed = true;
-		axios.put(`http://127.0.0.1:8000/api/tasks/${tempTask.pk}/`, tempTask);
-		this.props.getTasks();
+		tempTask.is_completed = !tempTask.is_completed; // Toggle is_completed
+		axios.put(`http://127.0.0.1:8000/api/tasks/${tempTask.pk}/`, tempTask).then(() => {
+			this.props.getTasks();
+		});
 	}
 
 	// Called when edit button is clicked
@@ -32,8 +32,9 @@ class Task extends React.Component {
 	// Called when delete button is clicked
 	handleDeleteClick = (e) => {
 		//DELETE to API
-		axios.delete(`http://127.0.0.1:8000/api/tasks/${this.state.task.pk}/`);
-		this.props.getTasks();
+		axios.delete(`http://127.0.0.1:8000/api/tasks/${this.state.task.pk}/`).then(() => {
+			this.props.getTasks();
+		});
 	}
 
 	// Called by TaskEditPopup when popup is closed
@@ -47,8 +48,9 @@ class Task extends React.Component {
 			// PUT edited task to API
 			let tempTask = this.state.task;
 			tempTask.task = editTask;
-			axios.put(`http://127.0.0.1:8000/api/tasks/${tempTask.pk}/`, tempTask);
-			this.props.getTasks();
+			axios.put(`http://127.0.0.1:8000/api/tasks/${tempTask.pk}/`, tempTask).then(() => {
+				this.props.getTasks();
+			});
 		}
 	}
 
@@ -57,7 +59,7 @@ class Task extends React.Component {
 			<div>
 				<div className="task-container">
 					<div>
-						<span className="task" onClick={this.handleTaskClick}>{this.state.task.task}</span>
+						<span className={this.state.task.is_completed ? "task-complete" : "task"} onClick={this.handleTaskClick}>{this.state.task.task}</span>
 					</div>
 					<div className="btns-container">
 						<button className="edit-btn" onClick={this.handleEditClick}>EDIT</button>

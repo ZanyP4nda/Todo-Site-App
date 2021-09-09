@@ -124,6 +124,38 @@ body {
 	width: 100%;
 }
 
+/* Complete task */
+
+.task-complete {
+	grid-column: 1;
+	position: relative;
+	font-weight: 300;
+	color: grey;
+}
+
+.task-complete:hover {
+	color: black;
+	cursor: pointer;
+}
+
+/* Complete task un-strikethrough on hover animation */
+
+.task-complete::after {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 1px;
+	background-color: grey;
+	position: absolute;
+	top:50%;
+	left:0;
+	transition: width 300ms ease-in-out;
+}
+
+.task-complete:hover::after {
+	width: 0;
+}
+
 .btns-container {
 	grid-column: 2;
 }
