@@ -129,10 +129,44 @@ body {
 /* TASKSPACE */
 
 .taskspace {
-	width: 97vw;
+	width: 96vw;
 	height: 93vh;
 	display: flex;
 	justify-content: center;
+}
+
+.clear-btn-container {
+	position: fixed;
+	bottom: 0;
+	width: 96vw;
+	margin-bottom: 20px;
+}
+
+.clear-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+
+	float: right;
+	margin-right: 15px;
+
+	border: none;
+	border-radius: 12px;
+	
+	background: #FFFFFF;
+	box-shadow: 3px 4px 5px 2px rgba(0, 0, 0, 0.4);
+}
+
+.clear-btn:hover {
+	cursor:pointer;
+	transform: scale(1.1);
+	transition: 0.15s ease-in;
+}
+
+.clear-btn:active {
+	transform: translateY(2px);
+	transition: 0.15s;
 }
 
 /* TASK */
@@ -264,7 +298,7 @@ body {
 
 /* TaskEditPopup */
 
-.popup-content {
+.task-popup-content {
 	background: #FFFFFF;
 	width: 550px;
 	height: 200px;
@@ -272,11 +306,11 @@ body {
 	padding: 15px;
 }
 
-.popup-overlay {
+.task-popup-overlay {
 	background: rgba(0, 0, 0, 0.5);
 }
 
-.popup-title {
+.task-popup-title {
 	display: inline-block;
 	position: absolute;
 	margin-top: 5px;
@@ -285,7 +319,7 @@ body {
 	font-size: 22px;
 }
 
-.popup-content-container {
+.task-popup-content-container {
 	display: flex;
 	height: 100%;
 	justify-content: center;
@@ -343,4 +377,59 @@ body {
 .done-btn:active {
 	transform: translateY(2px);
 	transition: 0.15s;
+}
+
+/* Confirm Popup */
+
+.confirm-popup-content {
+	background: #FFFFFF;
+	width: 500px;
+	height: 150px;
+	border-radius: 20px;
+	padding: 15px;
+}
+
+.confirm-popup-overlay {
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.confirm-popup-message {
+	text-align: center;
+	font-size: 28px;
+}
+
+.confirm-popup-btn-container {
+	display: flex;
+	justify-content: center;
+}
+
+.confirm-popup-btn-container button {
+	border: none;
+	border-radius: 7px;
+	padding: 10px;
+	width: 60px;
+
+	font-size: 16px;
+	font-weight: 600;
+	color: white;
+}
+
+.confirm-popup-btn-container button:hover {
+	cursor:pointer;
+	transform: scale(1.1);
+	transition: 0.15s ease-in;
+}
+
+.confirm-popup-btn-container button:active {
+	transform: translateY(2px);
+	transition: 0.15s;
+}
+
+.confirm-popup-yes-btn {
+	margin-right: 70px;
+	background: #0AA32E;	
+}
+
+.confirm-popup-no-btn {
+	background: #F03E4D;
 }

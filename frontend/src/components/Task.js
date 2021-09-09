@@ -69,7 +69,7 @@ class Task extends React.Component {
 
 				<TaskPopup 
 				isOpen={this.state.isPopupOpen} onClose={this.handlePopupClose.bind(this)} closeOnDocumentClick task={this.state.task.task} updateTask={this.updateTask.bind(this)} title="EDIT TASK"
-				className="popup" />
+				className="task-popup" />
 			</div>
 		);
 	}

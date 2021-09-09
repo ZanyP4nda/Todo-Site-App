@@ -50,11 +50,11 @@ class TaskPopup extends React.Component {
 
 	render() {
 		return(
-			<Popup open={this.props.isOpen} closeonDocumentClick onOpen={this.onOpenPopup} onClose={this.closePopup}>
-				<div className="popup-title">
+			<Popup open={this.props.isOpen} closeonDocumentClick onOpen={this.onOpenPopup} onClose={this.closePopup} className="task-popup">
+				<div className="task-popup-title">
 					<label>{this.props.title}</label>
 				</div>
-				<div className="popup-content-container">
+				<div className="task-popup-content-container">
 					<span>
 						<input type="text" className={this.state.inputCSSClass} placeholder="Enter your task" value={this.state.task} onChange={this.handleInputChange} />
 						<button className="done-btn" onClick={this.handleDoneBtnClick}>DONE</button>
