@@ -1,13 +1,16 @@
 import React from 'react';
 import axios from 'axios';
+
 import Task from 'src/components/Task.js';
+import TaskPopup from 'src/components/TaskPopup.js';
 
 class TaskSpace extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			tasks: [],
-			view: 0
+			view: 0,
+			isPopupOpen: false
 		}
 	}
 	componentDidMount() {
@@ -54,6 +57,28 @@ class TaskSpace extends React.Component {
 		}
 	}
 
+	// Called when create button is clicked
+	handleCreateClick = (e) => {
+		e.preventDefault();
+		this.setState({isPopupOpen: true});
+	}
+
+	// Called by TaskPopup when done button is clicked
+	newTask = (newTask) => {
+		// POST new task to API
+		axios.post('http://127.0.0.1:8000/api/tasks/', {
+			task: newTask,
+			is_completed: false
+		}).then(() => {
+			this.getTasks();
+		});
+	}
+
+	// Call by TaskPopup when popup is closed
+	onPopupClose = () => {
+		this.setState({isPopupOpen: false});
+	}
+
 	render() {
 		return(
 			<div>
@@ -72,7 +97,7 @@ class TaskSpace extends React.Component {
 						</div>
 					</span>
 					<div className="create-btn-container">
-						<button className="create-btn">+</button>
+						<button className="create-btn" onClick={this.handleCreateClick}>+</button>
 					</div>
 				</span>
 				<div className="taskspace">
@@ -80,6 +105,9 @@ class TaskSpace extends React.Component {
 						{this.renderTasks()}
 					</div>
 				</div>
+			<TaskPopup 
+			isOpen={this.state.isPopupOpen} updateTask={this.newTask} onClose={this.onPopupClose.bind(this)} closeOnDocumentClick
+			className="popup" />
 			</div>
 		);
 	}

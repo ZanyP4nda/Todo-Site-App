@@ -1,7 +1,7 @@
 import Popup from 'reactjs-popup';
 import React from 'react';
 
-class TaskEditPopup extends React.Component {
+class TaskPopup extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -62,4 +62,4 @@ class TaskEditPopup extends React.Component {
 	}
 }
 
-export default TaskEditPopup;
+export default TaskPopup;

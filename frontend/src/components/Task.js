@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import TaskEditPopup from 'src/components/TaskEditPopup.js';
+import TaskPopup from 'src/components/TaskPopup.js';
 
 class Task extends React.Component {
 	constructor(props) {
@@ -37,12 +37,12 @@ class Task extends React.Component {
 		});
 	}
 
-	// Called by TaskEditPopup when popup is closed
+	// Called by TaskPopup when popup is closed
 	handlePopupClose = () => {
 		this.setState({isPopupOpen: false});
 	}
 
-	// Called by TaskEditPopup when task is edited
+	// Called by TaskPopup when task is edited
 	updateTask = (editTask) => {
 		if(this.state.task.task != editTask)  {
 			// PUT edited task to API
@@ -67,8 +67,8 @@ class Task extends React.Component {
 					</div>
 				</div>
 
-				<TaskEditPopup 
-				isOpen={this.state.isPopupOpen} onClose={this.handlePopupClose.bind(this)} task={this.state.task.task} updateTask={this.updateTask.bind(this)}
+				<TaskPopup 
+				isOpen={this.state.isPopupOpen} onClose={this.handlePopupClose.bind(this)} closeOnDocumentClick task={this.state.task.task} updateTask={this.updateTask.bind(this)}
 				className="popup" />
 			</div>
 		);
