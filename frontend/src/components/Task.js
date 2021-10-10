@@ -18,7 +18,7 @@ class Task extends React.Component {
 	handleTaskClick = (e) => {
 		let tempTask = this.state.task;
 		tempTask.is_completed = !tempTask.is_completed; // Toggle is_completed
-		axios.put(`http://127.0.0.1:8000/api/tasks/${tempTask.pk}/`, tempTask).then(() => {
+		axios.put(`/api/tasks/${tempTask.pk}/`, tempTask).then(() => {
 			this.props.getTasks();
 		});
 	}
@@ -32,7 +32,7 @@ class Task extends React.Component {
 	// Called when delete button is clicked
 	handleDeleteClick = (e) => {
 		//DELETE to API
-		axios.delete(`http://127.0.0.1:8000/api/tasks/${this.state.task.pk}/`).then(() => {
+		axios.delete(`/api/tasks/${this.state.task.pk}/`).then(() => {
 			this.props.getTasks();
 		});
 	}
@@ -48,7 +48,7 @@ class Task extends React.Component {
 			// PUT edited task to API
 			let tempTask = this.state.task;
 			tempTask.task = editTask;
-			axios.put(`http://127.0.0.1:8000/api/tasks/${tempTask.pk}/`, tempTask).then(() => {
+			axios.put(`/api/tasks/${tempTask.pk}/`, tempTask).then(() => {
 				this.props.getTasks();
 			});
 		}

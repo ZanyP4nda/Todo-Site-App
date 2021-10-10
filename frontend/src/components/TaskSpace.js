@@ -23,7 +23,7 @@ class TaskSpace extends React.Component {
 
 	// GET tasks from REST api
 	getTasks = () => {
-		axios.get('http://127.0.0.1:8000/api/tasks').then((response) => {
+		axios.get('/api/tasks').then((response) => {
 			this.setState({tasks: response.data});
 		});
 	}
@@ -70,7 +70,7 @@ class TaskSpace extends React.Component {
 	// Called by TaskPopup when done button is clicked
 	newTask = (newTask) => {
 		// POST new task to API
-		axios.post('http://127.0.0.1:8000/api/tasks/', {
+		axios.post('/api/tasks/', {
 			task: newTask,
 			is_completed: false
 		}).then(() => {
@@ -101,7 +101,7 @@ class TaskSpace extends React.Component {
 			this.getTasks();
 			// DELETE all tasks
 			for(let i=0; i < this.state.tasks.length; i++) {
-				axios.delete(`http://127.0.0.1:8000/api/tasks/${this.state.tasks[i].pk}`).then(() => {
+				axios.delete(`/api/tasks/${this.state.tasks[i].pk}`).then(() => {
 					this.getTasks();
 				});	
 			}

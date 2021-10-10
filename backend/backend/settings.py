@@ -75,7 +75,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tasks',
-		'USER': 'taskadmin',
+		'USER': 'taskapi',
 		'PASSWORD': getpass(prompt="MySQL DB Password: "),
 		'HOST': 'localhost',
     }
