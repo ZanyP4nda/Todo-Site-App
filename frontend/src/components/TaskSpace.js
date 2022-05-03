@@ -27,9 +27,17 @@ class TaskSpace extends React.Component {
 		});
 	}
 
+	renderEmptySpace = () => {
+		return(
+			<div className="empty-space">
+				<h1 className="empty-space-title">No Tasks</h1>
+			</div>
+		);
+	}
+
 	// Map tasks from JSON array to JSX elements
 	renderTasks = () => {
-		return this.state.tasks.map((task) => {
+		let tasks = this.state.tasks.map((task) => {
 			if(this.props.view == 0) {
 				if(task.is_completed == false) {
 					return(
@@ -48,6 +56,13 @@ class TaskSpace extends React.Component {
 				}
 			}
 		});
+		// If second element of tasks array is defined (when empty is undefined) OR when length > 1 (just in case first elemnt is undefined but second element is task)
+		if(tasks[0] || tasks.length > 1) {
+			// Return tasks
+			return tasks;
+		}
+		// Else return empty space
+		return this.renderEmptySpace();
 	}
 
 	// Called when create button is clicked

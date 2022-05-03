@@ -20,7 +20,6 @@ class Task extends React.Component {
 
 	// Called when cursor hovers over task
 	onHover = (e) => {
-		console.log("HOVER");
 		if(!this.state.isShowButtons) {
 			this.setState({isShowButtons: true});
 		}
@@ -28,7 +27,6 @@ class Task extends React.Component {
 
 	// Called when cursor stops hovering over task
 	onStopHover = (e) => {
-		console.log("STOP HOVER");
 		if(this.state.isShowButtons) {
 			this.setState({isShowButtons: false});
 		}
