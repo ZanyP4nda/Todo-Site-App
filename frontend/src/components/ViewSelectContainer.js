@@ -1,6 +1,6 @@
 import React from 'react';
 
-class TopContainer extends React.Component {
+class ViewSelectContainer extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -15,7 +15,7 @@ class TopContainer extends React.Component {
 
 	render() {
 		return(
-			<span className="top-container">
+			<span className="view-select-container">
 				<span className="view-container">
 					<fieldset className="switch">
 						<label id="0" className={this.props.view == 0 ? "checked-label" : "unchecked-label"} onClick={this.handleViewChange}>
@@ -34,4 +34,4 @@ class TopContainer extends React.Component {
 	}
 }
 
-export default TopContainer;
+export default ViewSelectContainer;

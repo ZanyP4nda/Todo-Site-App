@@ -56,8 +56,8 @@ class TaskSpace extends React.Component {
 				}
 			}
 		});
-		// If second element of tasks array is defined (when empty is undefined) OR when length > 1 (just in case first elemnt is undefined but second element is task)
-		if(tasks[0] || tasks.length > 1) {
+		// If second element of tasks array is defined (when empty is undefined)
+		if(tasks[0]) {
 			// Return tasks
 			return tasks;
 		}
