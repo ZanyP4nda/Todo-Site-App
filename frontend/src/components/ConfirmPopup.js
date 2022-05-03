@@ -25,10 +25,12 @@ class ConfirmPopup extends React.Component {
 	render() {
 		return(
 			<Popup open={this.props.isOpen} closeonDocumentClick onClose={this.closePopup} className="confirm-popup">
-				<h2 className="confirm-popup-message">Clear all tasks?</h2>
-				<div className="confirm-popup-btn-container">
-					<button id="1" className="confirm-popup-yes-btn" onClick={this.handleOptionClick}>YES</button>
-					<button id="0" className="confirm-popup-no-btn" onClick={this.handleOptionClick}>NO</button>
+				<div className="confirm-popup-content-container">
+					<h2 className="confirm-popup-message">Clear all tasks?</h2>
+					<div className="confirm-popup-btn-container">
+						<button id="1" className="confirm-popup-yes-btn" onClick={this.handleOptionClick}>YES</button>
+						<button id="0" className="confirm-popup-no-btn" onClick={this.handleOptionClick}>NO</button>
+					</div>
 				</div>
 			</Popup>
 		);

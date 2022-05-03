@@ -110,7 +110,7 @@ class TaskSpace extends React.Component {
 					<button className="clear-btn" onClick={this.handleClearClick}><img src={clearIcon} alt="CLEAR" height="35" width="35" /></button>
 				</div>
 			<TaskPopup 
-			isOpen={this.state.isPopupOpen} updateTask={this.newTask} onClose={this.onPopupClose.bind(this)} closeOnDocumentClick task="" title="NEW TASK" />
+			isOpen={this.state.isPopupOpen} updateTask={this.newTask} onClose={this.onPopupClose.bind(this)} closeOnDocumentClick task="" title="New Task" />
 
 			<ConfirmPopup isOpen={this.state.isConfirmPopupOpen} onClose={this.onConfirmPopupClose.bind(this)} confirmPopupOutput={this.clearPopupOutput} />
 			</div>

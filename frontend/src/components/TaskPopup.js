@@ -55,12 +55,13 @@ class TaskPopup extends React.Component {
 					<label>{this.props.title}</label>
 				</div>
 				<div className="task-popup-content-container">
-					<span>
-						<form onSubmit={this.handleSubmit}>
-							<input type="text" className={this.state.inputCSSClass} placeholder="Enter your task" value={this.state.task} onChange={this.handleInputChange} />
+					<form onSubmit={this.handleSubmit}>
+						<div className="task-popup-form-container">
+							<input type="text" className={this.state.inputCSSClass} placeholder="Task name" value={this.state.task} onChange={this.handleInputChange} />
 							<button className="done-btn" type="submit">DONE</button>
-						</form>
-					</span>
+							<button className="cancel-btn" type="submit" onClick={this.closePopup}>CANCEL</button>
+						</div>
+					</form>
 				</div>
 			</Popup>
 		);
