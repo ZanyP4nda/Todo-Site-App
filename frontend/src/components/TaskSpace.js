@@ -56,10 +56,12 @@ class TaskSpace extends React.Component {
 				}
 			}
 		});
-		// If second element of tasks array is defined (when empty is undefined)
-		if(tasks[0]) {
-			// Return tasks
-			return tasks;
+		// If tasks not in view, will be undefined
+		// Look for defined tasks
+		for(let i=0; i < tasks.length; i++) {
+			if(tasks[i]) {
+				return tasks;
+			}
 		}
 		// Else return empty space
 		return this.renderEmptySpace();
