@@ -50,7 +50,7 @@ class TaskPopup extends React.Component {
 
 	render() {
 		return(
-			<Popup open={this.props.isOpen} closeonDocumentClick onOpen={this.onOpenPopup} onClose={this.closePopup} className="task-popup">
+			<Popup open={this.props.isOpen} closeOnDocumentClick onOpen={this.onOpenPopup} onClose={this.closePopup} className="task-popup">
 				<div className="task-popup-title">
 					<label>{this.props.title}</label>
 				</div>

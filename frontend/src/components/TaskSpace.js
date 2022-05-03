@@ -12,7 +12,6 @@ class TaskSpace extends React.Component {
 		super(props);
 		this.state = {
 			tasks: [],
-			view: 0,
 			isPopupOpen: false,
 			isConfirmPopupOpen: false
 		}
@@ -31,12 +30,11 @@ class TaskSpace extends React.Component {
 	// Map tasks from JSON array to JSX elements
 	renderTasks = () => {
 		return this.state.tasks.map((task) => {
-			if(this.state.view == 0) {
+			if(this.props.view == 0) {
 				if(task.is_completed == false) {
 					return(
 					<div key={task.pk}>
 						<Task task={task} getTasks={this.getTasks.bind(this)}/>
-						<br />
 					</div>
 					);
 				}
@@ -45,20 +43,11 @@ class TaskSpace extends React.Component {
 					return(
 					<div key={task.pk}>
 						<Task task={task} getTasks={this.getTasks.bind(this)}/>
-						<br />
 					</div>
 					);
 				}
 			}
 		});
-	}
-
-	// Called when view checkbox is changed
-	handleViewChange = (e) => {
-		let newView = parseInt(e.target.id);	
-		if(this.state.view != newView) {
-			this.setState({view: newView});
-		}
 	}
 
 	// Called when create button is clicked
@@ -111,30 +100,13 @@ class TaskSpace extends React.Component {
 	render() {
 		return(
 			<div>
-				<span className="top-container">
-					<span className="view-container">
-						<fieldset className="switch">
-							<label id="0" className={this.state.view == 0 ? "checked-label" : "unchecked-label"} onClick={this.handleViewChange}>
-								UNCOMPLETED
-							</label>
-							<label id="1" className={this.state.view == 1 ? "checked-label" : "unchecked-label"} onClick={this.handleViewChange}>
-								COMPLETED
-							</label>
-						</fieldset>
-						<div className="toggle-container">
-							<span className={this.state.view == 0 ? "toggle-uncompleted" : "toggle-completed"} />
-						</div>
-					</span>
-					<div className="create-btn-container">
-						<button className="create-btn" onClick={this.handleCreateClick}>+</button>
-					</div>
-				</span>
 				<div className="taskspace">
 					<div>
 						{this.renderTasks()}
 					</div>
 				</div>
-				<div className="clear-btn-container">
+				<div className="vertical-buttons-container">
+					<button className="create-btn" onClick={this.handleCreateClick}>+</button>
 					<button className="clear-btn" onClick={this.handleClearClick}><img src={clearIcon} alt="CLEAR" height="35" width="35" /></button>
 				</div>
 			<TaskPopup 

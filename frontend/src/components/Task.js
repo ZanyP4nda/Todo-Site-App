@@ -2,16 +2,36 @@ import React from 'react';
 import axios from 'axios';
 import TaskPopup from 'src/components/TaskPopup.js';
 
+const zero_opacity = {opacity: 0};
+const full_opacity = {opacity: 1};
+
 class Task extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			task: {},
-			isPopupOpen: false
+			isPopupOpen: false,
+			isShowButtons: false
 		}
 	}
 	componentDidMount() {
 		this.setState({task: this.props.task});
+	}
+
+	// Called when cursor hovers over task
+	onHover = (e) => {
+		console.log("HOVER");
+		if(!this.state.isShowButtons) {
+			this.setState({isShowButtons: true});
+		}
+	}
+
+	// Called when cursor stops hovering over task
+	onStopHover = (e) => {
+		console.log("STOP HOVER");
+		if(this.state.isShowButtons) {
+			this.setState({isShowButtons: false});
+		}
 	}
 
 	// Called when task is clicked
@@ -57,11 +77,11 @@ class Task extends React.Component {
 	render() {
 		return(
 			<div>
-				<div className="task-container">
-					<div>
+				<div className="task-container" onMouseEnter={this.onHover} onMouseLeave={this.onStopHover} >
+					<div className="task-label-container">
 						<span className={this.state.task.is_completed ? "task-complete" : "task"} onClick={this.handleTaskClick}>{this.state.task.task}</span>
 					</div>
-					<div className="btns-container">
+					<div className="task-btns-container" style={this.state.isShowButtons ? full_opacity : zero_opacity}>
 						<button className="edit-btn" onClick={this.handleEditClick}>EDIT</button>
 						<button className="delete-btn" onClick={this.handleDeleteClick}>DELETE</button>
 					</div>
